@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 // aqui ficarão as entidades (objetos)
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tb_user") //nome da tabela a ser criada no bd
 public class User implements Serializable{ /** User é nosso objeto, uma tabela do bd
@@ -29,6 +31,7 @@ public class User implements Serializable{ /** User é nosso objeto, uma tabela 
 	
 	//começo sempre pelo lado em que estou criando o codigo
 	// 1 cliente poded ter muitos pedidos
+	@JsonIgnore //na hora de puxar os pedidos, puxa os dados do client, e não da loop no lado do client (classe)
 	@OneToMany(mappedBy = "client") // falo pro spring que há uma conexão com a tabela ordens chamada cliente
 	private List<Order> orders = new ArrayList<>();
 	
