@@ -1,15 +1,20 @@
 package com.marcosweb.course.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 // aqui ficarão as entidades (objetos)
 
 @Entity
-public class User implements Serializable{ /**
+@Table(name = "tb_user") //nome da tabela a ser criada no bd
+public class User implements Serializable{ /** User é nosso objeto, uma tabela do bd
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
@@ -22,6 +27,15 @@ public class User implements Serializable{ /**
 	private String email;
 	private String password;
 	
+	//começo sempre pelo lado em que estou criando o codigo
+	// 1 cliente poded ter muitos pedidos
+	@OneToMany(mappedBy = "client") // falo pro spring que há uma conexão com a tabela ordens chamada cliente
+	private List<Order> orders = new ArrayList<>();
+	
+	public List<Order> getOrders() {
+		return orders;
+	}
+
 	public User() {
 		
 	}

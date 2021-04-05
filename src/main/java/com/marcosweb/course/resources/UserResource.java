@@ -14,7 +14,8 @@ import com.marcosweb.course.services.UserService;
 
 @RestController
 @RequestMapping(value = "/users")
-public class UserResource {
+public class UserResource { //camada de apresentação dos dados
+	
 
 	@Autowired //injeção automatica
 	private UserService service;
@@ -25,7 +26,7 @@ public class UserResource {
 		return ResponseEntity.ok().body(list); //view ultima camada (camada alta)
 	}
 	
-	@GetMapping(value = "/{id}") //depois configura a visibilidade
+	@GetMapping(value = "/{id}") 
 	public ResponseEntity<User> findById(@PathVariable Long id){
 		User obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);

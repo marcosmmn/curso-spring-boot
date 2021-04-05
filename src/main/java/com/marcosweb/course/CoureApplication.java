@@ -9,5 +9,5 @@ public class CoureApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CoureApplication.class, args);
 	}
-
+//isso é criado quando inicia o projeto, é a classe que da play na aplicação
 }

@@ -10,9 +10,11 @@ import org.springframework.context.annotation.Profile;
 import com.marcosweb.course.entities.User;
 import com.marcosweb.course.repositories.UserRepository;
 
+//classe de configurações de teste, usado pra testar o bd
+
 @Configuration
 @Profile("test")
-public class TestConfig implements CommandLineRunner{
+public class TestConfig implements CommandLineRunner{//o command line é pra executar algo
 	
 	@Autowired
 	private UserRepository userRepository;

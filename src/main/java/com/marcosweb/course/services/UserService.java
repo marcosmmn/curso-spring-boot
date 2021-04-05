@@ -22,7 +22,7 @@ public class UserService {// camada de serviço
 		return repository.findAll();	
 	}
 	
-	public User findById(Long id) { //cria aqui primeiro
+	public User findById(Long id) { //antes de levar pro Resource, faz a requisição aqui
 		Optional<User> obj = repository.findById(id);
 		return obj.get();
 	}
