@@ -10,10 +10,12 @@ import org.springframework.context.annotation.Profile;
 
 import com.marcosweb.course.entities.Category;
 import com.marcosweb.course.entities.Order;
+import com.marcosweb.course.entities.Product;
 import com.marcosweb.course.entities.User;
 import com.marcosweb.course.entities.enums.OrderStatus;
 import com.marcosweb.course.repositories.CategoryRepository;
 import com.marcosweb.course.repositories.OrderRepository;
+import com.marcosweb.course.repositories.ProductRepository;
 import com.marcosweb.course.repositories.UserRepository;
 
 //classe de configurações de teste, usado pra testar o bd
@@ -30,6 +32,9 @@ public class TestConfig implements CommandLineRunner{//o command line é pra exe
 	
 	@Autowired
 	private CategoryRepository categoryRepository;
+	
+	@Autowired
+	private ProductRepository productRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -38,6 +43,13 @@ public class TestConfig implements CommandLineRunner{//o command line é pra exe
 		Category cat2 = new Category(null, "Books"); 
 		Category cat3 = new Category(null, "Computers"); 
 		
+		Product p1 = new Product(null, "The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, ""); 
+		Product p2 = new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, ""); 
+		Product p3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, ""); 
+		Product p4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, ""); 
+		Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, ""); 
+
+		productRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
 		categoryRepository.saveAll(Arrays.asList(cat1,cat2,cat3));
 
 		
