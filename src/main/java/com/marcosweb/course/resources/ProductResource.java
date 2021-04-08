@@ -13,7 +13,7 @@ import com.marcosweb.course.entities.Product;
 import com.marcosweb.course.services.ProductService;
 
 @RestController
-@RequestMapping(value = "/product")
+@RequestMapping(value = "/products")
 public class ProductResource { //camada de apresentação dos dados
 	
 
