@@ -31,7 +31,7 @@ public class Category implements Serializable{
 	@JsonIgnore
 	@ManyToMany(mappedBy = "categories")
 	private Set<Product> products = new HashSet<>();
-	
+	//na relação manytomany há uma tabela auxiliar entre as classes
 	public Category() {
 		
 	}
